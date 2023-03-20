@@ -1,0 +1,16 @@
+div.t {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column ; */
+    flex-direction: row;
+    /* justify-content: space-around; */
+    align-content: center;
+    align-content:first baseline;
+    
+}
+
+div.t > div {
+    width: 24%;
+    height: 120px;
+    border: 2px dashed blue;
+}

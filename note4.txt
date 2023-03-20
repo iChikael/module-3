@@ -1,0 +1,81 @@
+procedure (thủ tục lưu trữ) là một đoạn mã SQL được chuẩn bị sẵn trong SQL mà có thể lưu lại
+để mã sử dụng đc nhiều lần
+nếu sử dụng 1 mã QPL mà phải viết lại nhiều lần thì lưu lại dưới dạng procedure, sau này cần sử 
+dụng thì chỉ cần gọi lại nó để thực thi
+có thể truyền tham số vào một thủ tục lưu trữ để procedure có thể thực hiện dựa trên tham số 
+truyền vào
+
+Để tạo một thủ tục lưu trữ,có thể sử dụng câu lệnh CREATE PROCEDURE trong MySQL:
+
+
+CREATE PROCEDURE procedure_name()
+BEGIN
+  -- Insert SQL statements here
+END;
+
+Ở đây, procedure_name là tên của thủ tục lưu trữ và các câu lệnh SQL sẽ được thêm vào giữa các từ khóa BEGIN và END.
+
+Để sửa đổi một thủ tục lưu trữ đã tồn tại, có thể sử dụng câu lệnh ALTER PROCEDURE:
+
+
+ALTER PROCEDURE procedure_name()
+BEGIN
+  -- Modify SQL statements here
+END;
+
+để xóa một thủ tục lưu trữ, bạn có thể sử dụng câu lệnh DROP PROCEDURE:
+
+
+DROP PROCEDURE IF EXISTS procedure_name;
+
+Lưu ý* không sử dụng IF EXISTS, câu lệnh DROP PROCEDURE sẽ báo lỗi nếu thủ tục lưu trữ không tồn tại.
+
+
+
+index trong mySQL là cơ chế tối ưu hóa truy vấn tìm kiếm và truy cập dữ liệu nhanh hơn
+1 index gồm 1 bảng chứa 1 hoặc nhiều cột trong bảng đó, và được sắp xếp theo 1 thứ tự để tìm kiếm
+hiệu quả hơn. index được sử dụng để tìm kiếm nhanh hơn = cách giảm thiểu số lượng bảng cần quét
+khi truy vấn dữ liệu
+
+khi một index đc tạo cho một 1 or tập hợp cột, mySQL tạo ra 1q bảng dữ liệu bổ sung để lưu trữ thông
+tin liên quan đến index
+
+cách tạo :
+
+creat index index_name on table_name(column_name);
+
+'column_name' là tên cột mà index sẽ tạo
+
+cách sửa :
+
+alter index index_name on table_name rename to new_index_name;
+
+xóa :
+
+drop index index_name on table_name
+
+
+trong sql, view là 1 bảng ảo dựa trên 1 câu lệnh trong sql
+một view bao gồm các hàng và cột, giống nhứ 1 bảng thật. các trường trong 1 view là các trường từ 1 
+hoặc nhiều bảng thật từ csdl
+có thể thêm các câu lệnh sql vào một view để truy vấn ( xem view là 1 bảng csdl )
+
+cách tạo :
+
+creat view view_name AS
+select column1, column2, ...
+from table_name
+where condition;
+
+cách sửa : 
+
+alter view view_name AS
+select column1, column2, ...
+from table_name
+where condition;	
+
+cách xóa : 
+
+drop view view_name;
+
+xóa một view, không có dữ liệu trong bảng được xóa. chỉ có view bị xóa khỏi cơ sở dữ liệu.
