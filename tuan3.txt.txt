@@ -1,0 +1,90 @@
+<%= %>          : viết mã expresstion
+<%! %>          : định nghĩa biến định nghĩa hàm
+<%  %>          : viết mã code
+
+<c:forEach>
+<c:forEach items="${requestScope.customers}" var="c">
+
+
+items: danh sách
+var: biến để chay
+
+### RequestDispatcher           là cái gì
+( RequestDispatcher là một interface trong Java Servlet
+ được sử dụng để chuyển tiếp request và response giữa các hoạt động của ứng dụng web )
+
+
+RequestDispatcher requestDispatcher = request.getRequestDispatcher("/customers.jsp");
+requestDispatcher.forward(request, response);
+
+### public void init()          là một phương thức được gọi một lần duy nhất khi servlet được khởi tạo
+ được gọi bởi container servlet khi servlet được tạo ra lần đầu tiên hoặc khi servlet được nạp lại.
+ Nó chỉ được gọi một lần và sẽ không được gọi lại cho đến khi servlet bị hủy và tạo lại.
+
+
+### protected void doGet()
+
+"protected void doGet()" là một phương thức trong lập trình Java Servlets
+được sử dụng để xử lý các yêu cầu HTTP GET từ phía client (trình duyệt web)
+
+
+### protected void doPost()
+
+"protected void doPost()" Khi một form được gửi đi bằng phương thức POST, phương thức doPost() sẽ được gọi.
+
+
+### request.setAttribute("customers", customers);
+
+được sử dụng để đặt thuộc tính customers có giá trị là danh sách các đối tượng Customer vào đối tượng request.
+
+
+###c:if, c:choose, c:when
+
+# <c:if> : là một tag trong thư viện JSTL,
+được sử dụng để kiểm tra một biểu thức có đúng hay không và chỉ thực hiện các hành động nếu biểu thức trả về giá trị đúng
+
+# <c:choose> và <c:when> : là các tag cùng được sử dụng trong thư viện JSTL để kiểm tra nhiều điều kiện khác nhau
+
+<c:choose>
+    <c:when test="${c.getId()%2==0}">
+        <tr style="color: red">
+            <td>${c.getName()}</td>
+            <td>${c.getCreateAt()}</td>
+            <td>${c.getAddress()}</td>
+            <td>${c.getImage()}</td>
+        </tr>
+    </c:when>
+    <c:otherwise>
+        <tr>
+            <td>${c.getName()}</td>
+            <td>${c.getCreateAt()}</td>
+            <td>${c.getAddress()}</td>
+            <td>${c.getImage()}</td>
+        </tr>
+    </c:otherwise>
+</c:choose>
+
+### Cách import JSTL
+Thêm dependencies: JTSL vào file pom.xml
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+
+### req.getParameter("txtSearch"); là một phương thức trong đối tượng HttpServletRequest
+để lấy giá trị của tham số được gửi từ phía client đến server thông qua phương thức GET hoặc POST.
+
+
+### Vòng đời của Servlet
+
+Phương thức init()
+Phương thức service()
+Phương thức doGet()
+Phương thức doPost()
+Phương thức destroy()
+
+
+### Vòng đời của JSP
+
+Biên dịch (Compilation).
+Khởi tạo (Initialization).
+Thực thi (Execution).
+Hủy (Cleanup).

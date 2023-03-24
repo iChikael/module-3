@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+        .container{
+            padding: 10px;
+        }
+        .menu-head{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            
+        }
+        .menu-head > *{
+            margin-right: 10px;
+        }
+        .menu-head-icon{
+            
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .menu-head-icon:hover{
+            background-color: lightgray;
+        }
+        .menu-head-icon > img{
+            border-radius: 50%;
+        }
+        .logo{
+            display: flex;
+            justify-content: center;
+        }
+        .apps{
+            
+            width: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: beige;
+            justify-content: end;
+            
+        }
+        .apps-container{
+            position: absolute;
+            top: calc(100%);
+            right: 0;
+            visibility: hidden;
+            padding-top: 10px;
+        }
+        .app-item{
+            background-color: lightgray;
+            margin: 5px;
+        }
+        .menu-head-icon:hover .apps-container{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-head">
+            <a>Gmail</a>
+            <a>Images</a>
+            <div class="menu-head-icon">
+                <i class="fa-brands fa-google"></i>
+                <div class="apps-container">
+                    <div class="apps">
+                        <div class="app-item">
+                            <img src="https://lh3.googleusercontent.com/ogw/AAEL6sjk6Zxpv5rsRH8KCdrYRlxQJaeEjiaiTFZ91zRT=s32-c-mo" alt="" srcset="">
+                            <p>Account</p>
+                        </div>
+                        <div class="app-item">
+                            <img src="https://lh3.googleusercontent.com/ogw/AAEL6sjk6Zxpv5rsRH8KCdrYRlxQJaeEjiaiTFZ91zRT=s32-c-mo" alt="" srcset="">
+                            <p>Account</p>
+                        </div>
+                        <div class="app-item">
+                            <img src="https://lh3.googleusercontent.com/ogw/AAEL6sjk6Zxpv5rsRH8KCdrYRlxQJaeEjiaiTFZ91zRT=s32-c-mo" alt="" srcset="">
+                            <p>Account</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-head-icon">
+                <img src="https://lh3.googleusercontent.com/ogw/AAEL6sjk6Zxpv5rsRH8KCdrYRlxQJaeEjiaiTFZ91zRT=s32-c-mo" alt="" srcset="">
+            </div>
+        </div>
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="" srcset="">
+        </div>
+    </div>
+</body>
+</html>

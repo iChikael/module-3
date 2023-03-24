@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .product{
+            height: 400px;
+            /* background-color: aqua; */
+        }
+        .autosearch-result{
+            position: absolute;
+            left: 0px;
+            right: 0px;
+        }
+        .autosearch-input{
+            position: relative;
+            width: 250px;
+            display: inline-block;
+        }
+        .autosearch-result-item{
+            border: 1px solid gray;
+            background-color: white;
+            padding: 7px;
+        }
+        .autosearch-input input{
+            width: 100%;
+            padding: 7px;
+            min-height: 33px;
+        }
+        .autosearch-result-item:hover{
+            background-color: lightgray;
+        }
+        .btnSearch{
+            min-height: 33px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="autosearch-parent">
+        <div class="autosearch-input">
+            <input placeholder="search..." />
+            <div class="autosearch-result">
+                <div class="autosearch-result-item">
+                    <label>Quang Dang</label>
+                </div>
+                <div class="autosearch-result-item">
+                    <label>Quang Dang1</label>
+                </div>
+                <div class="autosearch-result-item">
+                    <label>Quang Dang2</label>
+                </div>
+                <div class="autosearch-result-item">
+                    <label>Quang Dang3</label>
+                </div>
+            </div>
+        </div>
+        <button class="btnSearch">Search</button>
+        <div class="product"></div>
+    </div>
+</body>
+
+</html>

@@ -14,3 +14,17 @@ div.t > div {
     height: 120px;
     border: 2px dashed blue;
 }
+
+.container {
+    display: flex; /* set the container to use flexbox */
+    justify-content: center; /* center the items horizontally */
+    align-items: center; /* center the items vertically */
+  }
+  
+  .item {
+    flex: 1; /* set the item to grow and shrink to fill available space */
+    text-align: center; /* center the text within the item */
+    padding: 20px; /* add some padding for spacing */
+    background-color: #ccc; /* add a background color to make it visible */
+    margin: 10px; /* add some margin for spacing */
+  }
