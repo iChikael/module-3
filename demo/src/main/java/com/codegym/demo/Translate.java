@@ -1,6 +1,5 @@
 package com.codegym.demo;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +10,8 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "TranslateServlet", urlPatterns = "/trans")
-public class TranslateServlet extends HttpServlet {
+@WebServlet(name = "TranslateServlet", urlPatterns = "/translate")
+public class Translate extends HttpServlet {
     Map<String, String> maps;
     @Override
     public void init() throws ServletException {
@@ -23,7 +22,6 @@ public class TranslateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /**
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter printWriter = resp.getWriter();
@@ -45,20 +43,16 @@ public class TranslateServlet extends HttpServlet {
                 "</body>\n" +
                 "</html>";
 
+
+
+
         printWriter.println(str);
-
-         **/
-
-        // RequestDispatcher: điều phối request
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/translate.jsp");
-        requestDispatcher.forward(req, resp);
 
     }
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /**
         String search = req.getParameter("txtSearch");
 
 
@@ -87,16 +81,5 @@ public class TranslateServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter printWriter = resp.getWriter();
         printWriter.println(strResult);
-         **/
-
-        String txtSearch = req.getParameter("txtSearch");
-        String result = maps.get(txtSearch);
-
-
-        req.setAttribute("result", result);
-        req.setAttribute("search", txtSearch);
-
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/translate.jsp");
-        requestDispatcher.forward(req, resp);
     }
 }
