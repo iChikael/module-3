@@ -6,13 +6,13 @@ public class ProductServiceIpl implements ProductService{
 
     private Map<Long, Product> products;
 
-    public void ProductServiceImpl() {
-        products = new HashMap<>();
-        products.put(1L, new Product(1L, "Product 1", new Date(), "10", "20.0"));
-        products.put(2L, new Product(2L, "Product 2", new Date(), "20", "30.0"));
-        products.put(3L, new Product(3L, "Product 3", new Date(), "30", "40.0"));
-        products.put(4L, new Product(4L, "Product 4", new Date(), "40", "50.0"));
-    }
+//    public void ProductServiceImpl() {
+//        products = new HashMap<>();
+//        products.put(1L, new Product(1L, "Product 1", new Date(), "10", "20.0"));
+//        products.put(2L, new Product(2L, "Product 2", new Date(), "20", "30.0"));
+//        products.put(3L, new Product(3L, "Product 3", new Date(), "30", "40.0"));
+//        products.put(4L, new Product(4L, "Product 4", new Date(), "40", "50.0"));
+//    }
 
 
     @Override

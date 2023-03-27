@@ -13,6 +13,34 @@
     <title>Title</title>
 </head>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${requestScope.products}" var="c">
+        <tr>
+            <td>${c.getId()}</td>
+            <td>${c.getName()}</td>
+            <td>${c.getQuantity()}</td>
+            <td>${c.getPrice()}</td>
+            <td>${c.getDescription()}</td>
 
+            <td>
+                <a href="/product?action=create">Add</a>
+                <a href="/product?action=edit&id=${c.getId()}">Edit</a>
+                <a href="/product?action=delete&id=${c.getId()}">Delete</a>
+            </td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>

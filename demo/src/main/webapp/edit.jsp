@@ -30,15 +30,15 @@
     </label>
   </div>
   <div>
-    <label>Price In</label>
+    <label>Quantity</label>
     <input name="txtPriceIn"  />
   </div>
   <div>
-    <label>Price Out</label>
+    <label>Price</label>
     <input name="txtPriceOut"  />
   </div>
   <div>
-    <label>Created Date</label>
+    <label>Description</label>
     <input name="txtCreatedDate"  />
   </div>
   <div>

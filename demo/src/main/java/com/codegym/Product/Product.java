@@ -1,20 +1,19 @@
 package com.codegym.Product;
 
-import java.util.Date;
-
 public class Product {
     private long id;
     private String name;
-    private Date createAt;
+
     private String quantity;
     private String price;
+    private String description;
 
-    public Product(long id, String name, Date createAt, String quantity, String price) {
+    public Product(long id, String name, String quantity, String price, String description) {
         this.id = id;
         this.name = name;
-        this.createAt = createAt;
         this.quantity = quantity;
         this.price = price;
+        this.description = description;
     }
 
     public Product() {
@@ -37,13 +36,7 @@ public class Product {
         this.name = name;
     }
 
-    public Date getCreateAt() {
-        return createAt;
-    }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
-    }
 
     public String getQuantity() {
         return quantity;
@@ -61,12 +54,7 @@ public class Product {
         this.price = price;
     }
 
-    public void setCreatedDate(Date createdDate) {
-    }
+    public String getDescription(){return description;}
+    public void setDescription(String description){this.description = this.description;};
 
-    public void setPriceOut(String priceOut) {
-    }
-
-    public void setPriceIn(String priceIn) {
-    }
 }

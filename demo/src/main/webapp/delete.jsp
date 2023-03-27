@@ -26,17 +26,19 @@
         <label>Name</label>
         <input name="txtName" disabled value="${requestScope.product.getName()}" />
     </div>
+
+
     <div>
-        <label>Description</label>
-        <input name="txtDescription"  disabled value="${requestScope.product.getDescription()}"/>
+        <label>Quantity</label>
+        <input name="txtImage" disabled value="${requestScope.product.getQuantity()}" />
     </div>
     <div>
         <label>Price</label>
         <input name="txtPrice" disabled value="${requestScope.product.getPrice()}" />
     </div>
     <div>
-        <label>Image</label>
-        <input name="txtImage" disabled value="${requestScope.product.getImage()}" />
+        <label>Description</label>
+        <input name="txtDescription"  disabled value="${requestScope.product.getDescription()}"/>
     </div>
     <div>
         <label></label>

@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Create Product</title>
+    <title>Create Products</title>
     <style>
         div > label{
             width: 100px;
@@ -28,16 +28,16 @@
         <input name="txtName"  />
     </div>
     <div>
-        <label>Price In</label>
-        <input name="txtPriceIn"  />
+        <label>Quantity</label>
+        <input name="txtEmail"  />
     </div>
     <div>
-        <label>Price Out</label>
-        <input name="txtPriceOut"  />
+        <label>Price</label>
+        <input name="txtAddress"  />
     </div>
     <div>
-        <label>Created Date</label>
-        <input name="txtCreatedDate"  />
+        <label>Description</label>
+        <input name="txtImage"  />
     </div>
     <div>
         <label></label>
