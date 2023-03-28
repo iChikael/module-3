@@ -17,17 +17,17 @@ public class ProductServlet extends HttpServlet {
     public ProductService productService;
 
 //    public void init() throws ServletException {
-//        productService = new ProductServiceMySQL() {
-//        };
+//        productService = new ProductServiceMySQL();
 //    }
 
 
     public void init() throws ServletException {
+        productService = new ProductServiceMySQL();
         products = new ArrayList<>();
-        products.add(new Product(1L, "Bia", "10000", "15000","dadsas"));
-        products.add(new Product(2L, "Ruou",  "5000", "10000","dadsas"));
-        products.add(new Product(3L, "Banh","1000", "3000","dadsas"));
-        products.add(new Product(4L, "Keo",  "5000", "1000","dadsas"));
+        products.add(new Product(1L, "Bia", "10000", "15000", "dadsas"));
+        products.add(new Product(2L, "Ruou", "5000", "10000", "dadsas"));
+        products.add(new Product(3L, "Banh", "1000", "3000", "dadsas"));
+        products.add(new Product(4L, "Keo", "5000", "1000", "dadsas"));
     }
 
     @Override
@@ -55,21 +55,21 @@ public class ProductServlet extends HttpServlet {
 //    }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if(action == null){
-            action ="";
+        if (action == null) {
+            action = "";
         }
-        switch (action){
+        switch (action) {
             case "create":
-                showFormCreate(req,resp);
+                showFormCreate(req, resp);
                 break;
             case "edit":
-                showFormEdit(req,resp);
+                showFormEdit(req, resp);
                 break;
             case "delete":
-                showFormDelete(req,resp);
+                showFormDelete(req, resp);
                 break;
             default:
-                showList(req,resp);
+                showList(req, resp);
         }
     }
 
@@ -92,6 +92,7 @@ public class ProductServlet extends HttpServlet {
         requestDispatcher.forward(req, resp);
 
     }
+
     private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/creat.jsp");
         requestDispatcher.forward(req, resp);
@@ -99,7 +100,7 @@ public class ProductServlet extends HttpServlet {
 
     private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = productService.findAll();
-        req.setAttribute("product", products);
+        req.setAttribute("products", products);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/product.jsp");
         requestDispatcher.forward(req, resp);
     }
@@ -111,7 +112,7 @@ public class ProductServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createCustomer(req, resp);
+                createProduct(req, resp);
                 break;
             case "edit":
                 editProduct(req, resp);
@@ -120,30 +121,41 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(req, resp);
                 break;
             default:
-                showList(req,resp);
+                showList(req, resp);
         }
     }
 
-    private void createCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("txtName");
-        String quantity = req.getParameter("txtEmail");
-        String price = req.getParameter("txtAddress");
-        String description = req.getParameter("txtImage");
+    private void createProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String name = req.getParameter("txtName");
+//        String quantity = req.getParameter("txtEmail");
+//        String price = req.getParameter("txtAddress");
+//        String description = req.getParameter("txtImage");
+//
+//        Product product = new Product(productService.maxId() + 1, name, quantity, price, description);
+//        productService.save(product);
+//
+//        req.setAttribute("message", "Thêm thành công");
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/creat.jsp");
+//        requestDispatcher.forward(req, resp);
 
-        Product product = new Product(
-                productService.maxId() + 1, name, quantity, price, description);
+        String name = req.getParameter("name");
+        String quantity = String.valueOf(Integer.parseInt(req.getParameter("quantity")));
+        String price = String.valueOf(Double.parseDouble(req.getParameter("price")));
+        String description = req.getParameter("description");
+
+        Product product = new Product(productService.maxId() + 1, name, quantity, price, description);
         productService.save(product);
 
-        req.setAttribute("message", "Thêm thành công");
+        req.setAttribute("message", "Thêm sản phẩm thành công!");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/creat.jsp");
         requestDispatcher.forward(req, resp);
     }
 
     private void editProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("txtName");
-        String quantity = req.getParameter("txtEmail");
-        String price = req.getParameter("txtAddress");
-        String description = req.getParameter("txtImage");
+        String quantity = req.getParameter("txtQuantity");
+        String price = req.getParameter("txtPrice");
+        String description = req.getParameter("txtDescription");
 
         long idProduct = Long.parseLong(req.getParameter("id"));
 
@@ -158,13 +170,13 @@ public class ProductServlet extends HttpServlet {
 //        showList(req, resp);
 
 
-        resp.sendRedirect("/product.jsp");
+        resp.sendRedirect("/product");
     }
 
     private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         long idProduct = Long.parseLong(req.getParameter("id"));
 
         productService.remove(idProduct);
-        resp.sendRedirect("/product.jsp");
+        resp.sendRedirect("/product");
     }
 }

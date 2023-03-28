@@ -25,19 +25,19 @@
 <form  method="post">
     <div>
         <label>Name</label>
-        <input name="txtName"  />
+        <input name="name"  />
     </div>
     <div>
         <label>Quantity</label>
-        <input name="txtEmail"  />
+        <input name="quantity"  />
     </div>
     <div>
         <label>Price</label>
-        <input name="txtAddress"  />
+        <input name="price"  />
     </div>
     <div>
         <label>Description</label>
-        <input name="txtImage"  />
+        <input name="description"  />
     </div>
     <div>
         <label></label>

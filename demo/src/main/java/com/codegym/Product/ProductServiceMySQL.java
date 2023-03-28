@@ -2,6 +2,7 @@ package com.codegym.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ProductServiceMySQL implements ProductService {
@@ -9,7 +10,7 @@ public class ProductServiceMySQL implements ProductService {
     private static final String FIND_CUSTOMER_BY_ID = "SELECT * FROM product where id = ?";
     private static final String UPDATE_CUSTOMER = "UPDATE `product` SET `name` = ?, `quantity` = ?, `price` = ?, `description` = ? WHERE (`id` = ?);";
     private static final String DELETE_CUSTOMER = "DELETE FROM `product` WHERE (`id` = ?);";
-    private static final String INSERT_CUSTOMER = "INSERT INTO `product` (`name`, `quantity`, `price`, `description`) VALUES (?, ?, ?, ?, )";
+    private static final String INSERT_CUSTOMER = "INSERT INTO `product` (`name`, `quantity`, `price`, `description`) VALUES (?, ?, ?, ?)";
     private String jdbcURL = "jdbc:mysql://localhost:3306/c12_products?allowPublicKeyRetrieval=true&useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "1234";
@@ -87,14 +88,14 @@ public class ProductServiceMySQL implements ProductService {
         Connection connection = getConnection();
 
 
-        //INSERT INTO customer` (`name`, `address`, `email`, `createat`, `image`) VALUES (?, ?, ?, ?, ?)";
+
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CUSTOMER);
             preparedStatement.setString(1, product.getName());
             preparedStatement.setString(2, product.getQuantity());
             preparedStatement.setString(3, product.getPrice());
 
-            preparedStatement.setString(5, product.getDescription());
+            preparedStatement.setString(4, product.getDescription());
 
             preparedStatement.executeUpdate();
 
@@ -167,6 +168,21 @@ public class ProductServiceMySQL implements ProductService {
 
     @Override
     public long maxId() {
-        return 0;
+        List<Product> products = findAll();
+        products.sort(new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getId() > o2.getId()) {
+                    return 1;
+                } else if (o1.getId() == o2.getId()) {
+                    return 0;
+                }else{
+                    return -1;
+                }
+            }
+        });
+
+        Product lastProduct = products.get(products.size() - 1);
+        return lastProduct.getId();
     }
 }

@@ -31,19 +31,19 @@
   </div>
   <div>
     <label>Quantity</label>
-    <input name="txtPriceIn"  />
+    <input name="txtQuantity"  />
   </div>
   <div>
     <label>Price</label>
-    <input name="txtPriceOut"  />
+    <input name="txtPrice"  />
   </div>
   <div>
     <label>Description</label>
-    <input name="txtCreatedDate"  />
+    <input name="txtDescription"  />
   </div>
   <div>
     <label></label>
-    <button>Create</button>
+    <button>Submit</button>
   </div>
 </form>
 </body>
