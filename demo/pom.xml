@@ -17,7 +17,9 @@
         <junit.version>5.9.1</junit.version>
     </properties>
 
+<!--    <dependencies>-->
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -25,7 +27,7 @@
             <version>8.0.28</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -44,27 +46,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- taglibs-standard-spec-*.jar -->
-        <!-- http://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-spec -->
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-spec</artifactId>
-            <version>1.2.5</version>
-        </dependency>
-
-        <!-- taglibs-standard-impl-*.jar -->
-        <!-- http://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl -->
-        <dependency>
-            <groupId>org.apache.taglibs</groupId>
-            <artifactId>taglibs-standard-impl</artifactId>
-            <version>1.2.5</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter-engine</artifactId>-->
+<!--            <version>${junit.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
 
